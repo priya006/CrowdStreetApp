@@ -1,6 +1,7 @@
 import crowdstreet.pages.CreateAccount;
 import crowdstreet.pages.LaunchApp;
 import crowdstreet.pages.Registration;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -87,7 +88,18 @@ public class RegistrationProcessTest {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,250)");
         registration.signUpButton().click();
-       // driver.close();
+
+        Thread.sleep(1000);
+
+
+    }
+
+    @After
+    public void tearDown() {
+
+        // Closing the browser and WebDriver
+        driver.close();
+        driver.quit();
     }
 
 
