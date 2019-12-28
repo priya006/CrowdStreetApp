@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 import static junit.framework.TestCase.assertTrue;
 
 public class RegistrationProcessTest {
-    private static final int DELAY = 2;
 
     @Test
     public void RegisterUser() throws InterruptedException {
@@ -33,12 +32,11 @@ public class RegistrationProcessTest {
 
         Assert.assertEquals(actualUrl, expectedUrl);
 
-
-        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
+        Thread.sleep(300);
 
         createAccount.createAccount().click();
 
-        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
+        Thread.sleep(300);
         assertTrue(driver.getTitle().contains("Create Account"));
 
         String userName = "" + (int) (Math.random() * Integer.MAX_VALUE);
@@ -47,7 +45,6 @@ public class RegistrationProcessTest {
         registration.getEmailID().sendKeys(emailID);
 
 
-        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
         registration.enterUserName().sendKeys("priya");
 
 
@@ -58,7 +55,7 @@ public class RegistrationProcessTest {
         registration.passwordVisibilityToggle().click();
         createPassword.sendKeys(Keys.TAB);
 
-        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
+        Thread.sleep(100);
         registration.confirmPassword().get(4).sendKeys("fakepassword1A!");
 
 
@@ -72,11 +69,11 @@ public class RegistrationProcessTest {
         registration.accreditedInvestorRadioButton().click();
         registration.termsOfServiceCheckbox().click();
         registration.investmentOppurtunitiesCheckBox().click();
-        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
 
+        Thread.sleep(1000);
         registration.captchaCheckmark().click();
-        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
 
+        Thread.sleep(5000);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,250)");
         registration.signUpButton().click();
