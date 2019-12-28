@@ -4,7 +4,7 @@ import org.openqa.selenium.*;
 
 
 
-public class LaunchApp {
+public class LaunchApp  {
 
     WebDriver webDriver;
 

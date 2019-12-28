@@ -2,68 +2,78 @@ import crowdstreet.pages.CreateAccount;
 import crowdstreet.pages.LaunchApp;
 import crowdstreet.pages.Registration;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.*;
 
 
-import java.util.concurrent.TimeUnit;
-
 import static junit.framework.TestCase.assertTrue;
 
 public class RegistrationProcessTest {
 
+    public static final String password = "fakepassword1A!";
+    public static final String phoneNumber = "9259630196";
+    public static final String firstName = "priya";
+    public static final String lastName = "boopathi";
+    public static final WebDriver driver = new ChromeDriver();
+    public static final String cityName = "portland";
+    public static final String stateName = "oregon";
+    public static final String url = "https://test.crowdstreet.com/properties/?";
+    public static String actualBaseUrl;
+    public static final LaunchApp launchApp = new LaunchApp(driver);
+
+    @Before
+    public void setUp() throws Exception {
+
+        // Maximize browser
+        driver.manage().window().fullscreen();
+        String actualBaseUrl = url;
+        launchApp.getUrl(actualBaseUrl);
+
+    }
+
     @Test
     public void RegisterUser() throws InterruptedException {
 
-        // Initialize browser
-        WebDriver driver = new ChromeDriver();
-
-        LaunchApp launchApp = new LaunchApp(driver);
+        String expectedUrl = url;
         Registration registration = new Registration(driver);
         CreateAccount createAccount = new CreateAccount(driver);
 
-        driver.manage().window().fullscreen();
-        String actualUrl = "https://test.crowdstreet.com/properties/?";
-        launchApp.getUrl(actualUrl);
 
+        actualBaseUrl = driver.getCurrentUrl();
 
-        String expectedUrl = driver.getCurrentUrl();
-
-        Assert.assertEquals(actualUrl, expectedUrl);
+        Assert.assertEquals(actualBaseUrl, expectedUrl);
 
         Thread.sleep(300);
-
         createAccount.createAccount().click();
 
         Thread.sleep(300);
         assertTrue(driver.getTitle().contains("Create Account"));
 
         String userName = "" + (int) (Math.random() * Integer.MAX_VALUE);
-        String emailID = "priya" + userName + "@gmail.com";
+        String emailID = firstName + userName + "@gmail.com";
 
         registration.getEmailID().sendKeys(emailID);
+        registration.enterUserName().sendKeys(firstName);
 
 
-        registration.enterUserName().sendKeys("priya");
-
-
-        registration.enterLastName().sendKeys("boopathi");
+        registration.enterLastName().sendKeys(lastName);
         WebElement createPassword = registration.enterPassword();
-        createPassword.sendKeys("fakepassword1A!");
+        createPassword.sendKeys(password);
         createPassword.sendKeys(Keys.TAB);
         registration.passwordVisibilityToggle().click();
         createPassword.sendKeys(Keys.TAB);
 
         Thread.sleep(100);
-        registration.confirmPassword().get(4).sendKeys("fakepassword1A!");
+        registration.confirmPassword().get(4).sendKeys(password);
 
 
-        registration.enterPhoneNumber().get(1).sendKeys("9259630196");
+        registration.enterPhoneNumber().get(1).sendKeys(phoneNumber);
 
 
-        registration.enterCity().sendKeys("portland");
-        registration.enterStateAndCountry().get(0).sendKeys("oregon", Keys.TAB, Keys.TAB);
+        registration.enterCity().sendKeys(cityName);
+        registration.enterStateAndCountry().get(0).sendKeys(stateName, Keys.TAB, Keys.TAB);
 
 
         registration.accreditedInvestorRadioButton().click();
@@ -77,19 +87,16 @@ public class RegistrationProcessTest {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,250)");
         registration.signUpButton().click();
-        driver.close();
-
+       // driver.close();
     }
 
 
-    //Add selenium jar files
-    //upload in github so that they can fork
     //asssertion add
     //replace all thread.sleep method
     //close the browser
     //pull all the test to a seperate file
     //add confirmation dialog as test
-    //Add @before
     //Add @after
+    //refactor code
 
 }
