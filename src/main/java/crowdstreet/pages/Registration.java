@@ -3,7 +3,6 @@ package crowdstreet.pages;
 import java.util.List;
 
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +27,7 @@ public class Registration {
     public WebElement enterUserName() {
 
         return webDriver.findElement(By.xpath("//div[@class='input-container flex-input -left sc-bdVaJa hgkmdP']//div[@class='ui icon input css-o5h0vj e1g1cy8v0']//input"));
+
     }
 
     public WebElement enterLastName() {

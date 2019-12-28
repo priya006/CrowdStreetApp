@@ -1,27 +1,28 @@
-package registrationdriver;
-
-
 import crowdstreet.pages.CreateAccount;
 import crowdstreet.pages.LaunchApp;
 import crowdstreet.pages.Registration;
 import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.*;
 
+
+import java.util.concurrent.TimeUnit;
+
 import static junit.framework.TestCase.assertTrue;
 
+public class RegistrationProcessTest {
+    private static final int DELAY = 2;
 
-public class RegistrationProcess {
-    public static void main(String[] args) throws InterruptedException {
+    @Test
+    public void RegisterUser() throws InterruptedException {
 
-        //  System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         // Initialize browser
         WebDriver driver = new ChromeDriver();
 
         LaunchApp launchApp = new LaunchApp(driver);
         Registration registration = new Registration(driver);
         CreateAccount createAccount = new CreateAccount(driver);
-
 
         driver.manage().window().fullscreen();
         String actualUrl = "https://test.crowdstreet.com/properties/?";
@@ -33,10 +34,11 @@ public class RegistrationProcess {
         Assert.assertEquals(actualUrl, expectedUrl);
 
 
-        Thread.sleep(200);
+        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
+
         createAccount.createAccount().click();
 
-        Thread.sleep(300);
+        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
         assertTrue(driver.getTitle().contains("Create Account"));
 
         String userName = "" + (int) (Math.random() * Integer.MAX_VALUE);
@@ -45,6 +47,7 @@ public class RegistrationProcess {
         registration.getEmailID().sendKeys(emailID);
 
 
+        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
         registration.enterUserName().sendKeys("priya");
 
 
@@ -54,9 +57,8 @@ public class RegistrationProcess {
         createPassword.sendKeys(Keys.TAB);
         registration.passwordVisibilityToggle().click();
         createPassword.sendKeys(Keys.TAB);
-        Thread.sleep(100);
 
-
+        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
         registration.confirmPassword().get(4).sendKeys("fakepassword1A!");
 
 
@@ -70,11 +72,10 @@ public class RegistrationProcess {
         registration.accreditedInvestorRadioButton().click();
         registration.termsOfServiceCheckbox().click();
         registration.investmentOppurtunitiesCheckBox().click();
-        Thread.sleep(1000);
-
+        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
 
         registration.captchaCheckmark().click();
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,250)");
@@ -91,5 +92,7 @@ public class RegistrationProcess {
     //close the browser
     //pull all the test to a seperate file
     //add confirmation dialog as test
+    //Add @before
+    //Add @after
 
 }
