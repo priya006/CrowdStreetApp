@@ -103,12 +103,4 @@ public class RegistrationProcessTest {
     }
 
 
-    //asssertion add
-    //replace all thread.sleep method
-    //close the browser
-    //pull all the test to a seperate file
-    //add confirmation dialog as test
-    //Add @after
-    //refactor code
-
 }
