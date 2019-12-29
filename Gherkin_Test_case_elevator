@@ -1,0 +1,42 @@
+cenario Outline: Elevator goes from 0th floor to 10th floor
+    Given	User can select number from the keypad
+     When 	The user selects a <number>
+     Then		Elevator stops 	in the floor <number>
+      And     The user sees the number displayed on the screen above
+      But     The user should not see the number "1" displayed on the screen
+  
+    Examples: number
+  
+      | number | 
+      | 2      | 
+      | 10     | 
+  
+  Scenario Outline: Press the keypad to select a floor from inside the elevator to reach "First" floor
+    Given	User is able to reach "First" floor from any of the <number> floors
+     When     The user selects a floor <number> from the functioning keypad
+     Then  Elevator goes to the selected destination floor
+      But User should not see a broken keypad in <number> floor
+  
+    Examples: number
+  
+      | number | 
+      | 5      | 
+      | 10     | 
+      | 7      | 
+      | 6      | 
+  
+  Scenario: Elevator beeps if the maximum weight capacity exceeds
+    Given Elevator that holds a maximum of "400 lbs"
+     When A load of <lbs> is met by the elevator
+     Then elevator  overload sensor beeps
+      But elevator should be without beeping when the elevator capacity exceeds "400 lbs"
+  
+    Examples: lbs
+  
+      | lbs | 
+      | 100 | 
+      | 600 | 
+      | 505 | 
+  
+  
+  
