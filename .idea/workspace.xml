@@ -14,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RegistrationProcessTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RegistrationProcessTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/RegistrationProcessTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
@@ -36,12 +36,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="380">
-                <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <first_editor relative-caret-position="190">
+                <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -620,14 +620,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577461955392</updated>
-      <workItem from="1577461958712" duration="21513000" />
+      <workItem from="1577461958712" duration="21586000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RegistrationProcessTest - 2019.12.27 at 19h 26m 17s.xml">
-      <configuration name="RegistrationProcessTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RegistrationProcessTest - 2019.12.27 at 19h 26m 47s.xml">
       <configuration name="RegistrationProcessTest" configurationId="JUnit" />
     </history-entry>
@@ -655,9 +652,12 @@
     <history-entry file="RegistrationProcessTest - 2019.12.30 at 11h 57m 58s.xml">
       <configuration name="RegistrationProcessTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RegistrationProcessTest - 2019.12.30 at 13h 52m 42s.xml">
+      <configuration name="RegistrationProcessTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21513000" />
+    <option name="totallyTimeSpent" value="21586000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="6" />
@@ -831,17 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="380">
-            <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/crowdstreet/pages/CreateAccount.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -906,6 +895,17 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

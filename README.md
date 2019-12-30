@@ -1,4 +1,4 @@
-Requirements
+## Requirements
 
 The server expects you to have Chrome installed in the default location for each system:
 
@@ -12,12 +12,12 @@ The server expects you to have Chrome installed in the default location for each
 **Windows users with Chocolatey installed:** choco install chromedriver
 
 
-#Before you run the automation test
+# Before you run the automation test
 
 1. Make sure you have installed chromedriver. Type  "which chromedriver" from terminal and you should see "/usr/local/bin/chromedriver"
 
 
-#Mac users if you need to install homebrew 
+# Mac users if you need to install homebrew 
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
  
