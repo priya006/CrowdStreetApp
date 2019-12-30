@@ -1,10 +1,7 @@
 import crowdstreet.pages.CreateAccount;
 import crowdstreet.pages.LaunchApp;
 import crowdstreet.pages.Registration;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.*;
 
@@ -24,8 +21,11 @@ public class RegistrationProcessTest {
     public static String actualBaseUrl;
     public static final LaunchApp launchApp = new LaunchApp(driver);
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void setUp() throws Exception {
+
+        //Set Chrome Driver
+        //System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
 
         // Maximize browser
         driver.manage().window().fullscreen();
@@ -94,8 +94,8 @@ public class RegistrationProcessTest {
 
     }
 
-    @After
-    public void tearDown() {
+    @AfterClass
+    public static void tearDown() {
 
         // Closing the browser and WebDriver
         driver.close();
